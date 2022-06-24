@@ -4,23 +4,32 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0-beta1/css/bootstrap-grid.min.css"
+        integrity="sha512-QWjMsIpO5eW4+c4ASTEaZ4+eZNZ4YTtSDiu167Rq1Eqw//WlO+rXo4OvZMpyW/ykbN5LFeXmN6N416OzmWo7fA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="style.css">
     <title>Memory Game</title>
     
 </head>
 <body>
-    <div class="control-buttons">
-    <span>Sart Game</span>
+    <div class="control-buttons" id="control-buttons">
+    <span class="flex-1">Sart Game</span>
     </div>
-    <div class="info-container">
+    <div class="info-container container">
         <div class="name">
-        Hello: <span></span>
+            Hello: 
+            <span></span>
+        </div>
+        <div class="time">
+            Time: 
+            <span>0</span>
         </div>
         <div class="tries">
-        Wrong Tries: <span>0</span>
+            Wrong Tries: 
+            <span>0</span>
         </div>
     </div>
-    <div class="memory-game-blocks" >
+    <div class="memory-game-blocks container" id="memory-game-blocks" >
         <div class="game-block" data-technology="facebook"><div class="face front"></div><div class="face back"><img src="imgs/1.jpg" alt=""></div></div>
         <div class="game-block" data-technology="facebook"><div class="face front"></div><div class="face back"><img src="imgs/1.jpg" alt=""></div></div>
         <div class="game-block" data-technology="inside-android"><div class="face front"></div><div class="face back"><img src="imgs/2.jpg" alt=""></div></div>
@@ -45,6 +54,9 @@
     </div>
     <audio id="success" src="audio/right.mp4" preload="auto"></audio>
     <audio id="fail" src="audio/wrong.mp4" preload="auto"></audio>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0-beta1/js/bootstrap.min.js"
+        integrity="sha512-Hqe3s+yLpqaBbXM6VA0cnj/T56ii5YjNrMT9v+us11Q81L0wzUG0jEMNECtugqNu2Uq5MSttCg0p4KK0kCPVaQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script type="text/javascript" src="script.js"></script>
 </body>
 </html>

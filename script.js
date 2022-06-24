@@ -1,3 +1,16 @@
+let time = document.querySelector('.time span');
+let duration = 1000; // milliseconds
+let cardsContainer = document.getElementById("memory-game-blocks");
+
+let allMatchedCount = cardsContainer.getElementsByClassName("has-match");
+let allCardsCount = cardsContainer.getElementsByClassName("game-block");
+
+
+function increaseTime() {
+    time.innerHTML = parseInt(time.innerHTML) + 1;
+}
+
+let startTimer ;
 //get username
 document.querySelector(".control-buttons span").onclick = function() {
     let yourName = prompt("Please enter your name");
@@ -6,12 +19,29 @@ document.querySelector(".control-buttons span").onclick = function() {
     }else{
         document.querySelector('.name span').innerHTML = yourName;
     }
-    document.querySelector('.control-buttons').remove();
-    
+    document.querySelector('.control-buttons').classList.add('hide');
+    startTimer = setInterval(increaseTime, duration);
+    var timesRun = 0;
+	var interval = setInterval(function () {
+		timesRun += 1;
+		if (allMatchedCount.length === allCardsCount.length) {
+			clearInterval(interval);
+            console.log("stopped");
+            let failedCount = parseInt(
+							document.querySelector(".tries span").innerHTML
+						);
+            document.getElementById("control-buttons").classList.remove("hide");
+            document.getElementById("control-buttons").innerHTML = `
+    <span class="flex-1">Great Job ${yourName},you have finished in ${timesRun} s with ${failedCount} tries wrong. Click for a new game</span>
+                
+            `;
+		}
+		//do whatever here..
+        console.log(timesRun);
+		}, 1000);
 }
 
 //set variables
-let duration = 1000; // milliseconds
 let blocksContainer = document.querySelector(".memory-game-blocks");
 // join all blocks together
 let blocks = Array.from(blocksContainer.children);
