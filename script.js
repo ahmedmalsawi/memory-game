@@ -37,9 +37,12 @@ document.querySelector(".control-buttons span").onclick = function() {
             `;
 		}
 		//do whatever here..
-        console.log(timesRun);
 		}, 1000);
+	flipall();
+	setTimeout(() => { flipall();},700);
 }
+
+
 
 //set variables
 let blocksContainer = document.querySelector(".memory-game-blocks");
@@ -74,7 +77,6 @@ function flipBlock(selectedBlock) {
         console.log("Two slected");
         //Stop clicking
         stopClick();
-        
         // check if matched
         matchBlocks(allFlippedCards[0], allFlippedCards[1]);
     }
@@ -93,18 +95,15 @@ function stopClick(){
 
 //shuffle function
 function shuffle(array){
-    
     //Setting Variables
     let current = array.length,
     temp,
     random;
-    
     while(current > 0){
         //Get random value
         random = Math.floor(Math.random() * current);
         //Decrease length by One
         current--;
-        
         // swap values
         // save current value to a temp storage to be replaced with in destination
         temp = array[current];
@@ -136,3 +135,11 @@ function matchBlocks(firstBlock,secondBlock){
 		}
 };
 
+function flipall()
+{
+    let getAll = document.querySelectorAll('.game-block');
+    getAll.forEach((element) => element.classList.toggle("is-flipped"));
+};
+
+
+	
