@@ -1,7 +1,9 @@
 *{
     box-sizing: border-box;
 }
-
+a{
+text-decoration: none;
+}
 body {
     font-family: "Tahoma", "Helvetica Neue";
 }
@@ -13,7 +15,8 @@ body {
     width:100%;
     height:100%;
     z-index: 2;
-    background-color:rgba(3,169,244,0.9)
+    /* background-color:rgba(3,169,244,0.9); */
+    background-color:rgb(0 0 0 / 90%);
 }
 .control-buttons span {
     position: absolute;
@@ -30,15 +33,16 @@ body {
 }
 
 .info-container{
-    width:1080px;
-    margin:20px auto 0;
+    /* width:1080px; */
+    /* margin:20px auto 0; */
     background-color: #f6f6f6;
-    padding: 20px;
+    /* padding: 20px; */
     font-size: 24px;
     overflow: hidden;
     border: 2px solid #2196f3;
+    border-radius: 10px;
 }
-.info-container .name {
+/* .info-container .name {
     float: left;
     width: 50%;
 }
@@ -46,13 +50,13 @@ body {
     float: right;
     width: 50%;
     text-align: right;
-}
+} */
 .memory-game-blocks{
     
-    display:flex;
+    /* display:flex; */
     /* width:1100px; */
-    flex-wrap: wrap;
-    margin:20px auto;
+    /* flex-wrap: wrap; */
+    /* margin:20px auto; */
 }
 
 .memory-game-blocks.no-clicking {
@@ -60,17 +64,17 @@ body {
 }
 
 .memory-game-blocks .game-block{
-    height:200px;
+    height:150px;
     transition: transform .5s;
     transform-style: preserve-3d;
     cursor :pointer;
     position: relative;
-    flex:1 0 200px;
-    margin: 0 10px 20px;
+    flex:1 0 150px;
+    margin: 0 5px 10px;
 }
 .memory-game-blocks .game-block .front{
     background-color:#333;
-    line-height: 200px;
+    /* line-height: 250px; */
     
 }
 .memory-game-blocks .game-block .front::before{
@@ -86,9 +90,10 @@ font-weight:bold;
     
 }
 .memory-game-blocks .game-block img{
-    width:140px;
-    height:140px;
-    margin-top:30px;
+    width:100%;
+    height:100%;
+    border-radius: 20px;
+    /* margin-top:30px; */
 }
 .memory-game-blocks .game-block .face{
     position:absolute;
@@ -97,6 +102,7 @@ font-weight:bold;
     text-align:center;
     backface-visibility: hidden;
     border: 5px solid #2196f3;
+    border-radius:20px;
 }
 .memory-game-blocks .game-block.is-flipped,
 .memory-game-blocks .game-block.has-match{
@@ -107,4 +113,13 @@ font-weight:bold;
 
 .hide{
 display:none !important;
+}
+@media (max-width: 991px){
+.memory-game-blocks .game-block {
+    height:50px;
+    flex:1 0 100px;
+}
+.memory-game-blocks .game-block .front::before {
+    font-size: 30px;
+}
 }

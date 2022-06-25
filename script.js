@@ -32,17 +32,19 @@ document.querySelector(".control-buttons span").onclick = function() {
 						);
             document.getElementById("control-buttons").classList.remove("hide");
             document.getElementById("control-buttons").innerHTML = `
-    <span class="flex-1">Great Job ${yourName},you have finished in ${timesRun} s with ${failedCount} tries wrong. Click for a new game</span>
+    <span class="flex-1">Great Job ${yourName},you have finished in ${timesRun} s with ${failedCount} tries wrong. Click <a href="#" onclick="reloadPage()"> Here </a> for a new game</span>
                 
             `;
 		}
 		//do whatever here..
 		}, 1000);
 	flipall();
-	setTimeout(() => { flipall();},700);
+	setTimeout(() => { flipall();},1000);
 }
 
-
+function reloadPage(){
+window.location.reload();
+}
 
 //set variables
 let blocksContainer = document.querySelector(".memory-game-blocks");
